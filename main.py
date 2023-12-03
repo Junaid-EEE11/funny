@@ -1,3 +1,8 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import random
+import string
+from selenium.webdriver.firefox.options import Options
 import time
 import multiprocessing
 from form_filler import fill_form
