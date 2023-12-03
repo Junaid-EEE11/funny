@@ -16,8 +16,8 @@ if __name__ == '__main__':
     processes = []
     for number in numbers_list:
         p = multiprocessing.Process(target=fill_form, args=(url_form, number))
-        p.start()
-        processes.append(p)
+        p.start();
+        processes.append(p);
     for process in processes:
         process.join()
     while True:
