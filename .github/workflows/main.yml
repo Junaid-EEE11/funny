@@ -35,5 +35,5 @@ jobs:
         
       - name: run main.py
         run: |
-          python -m install requirements.txt
+          python -m pip install requirements.txt
           python main.py
