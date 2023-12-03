@@ -23,4 +23,3 @@ jobs:
           mv requirements.txt.new requirements.txt
           python -m pip install -r requirements.txt
           python main.py register.py form_filler.py
-          python main.py form_filler.py register.py
