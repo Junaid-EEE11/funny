@@ -5,10 +5,9 @@ from register import register_form
 
 if __name__ == '__main__':
     url_form = "https//shop077.com/forgetPassword"
-    url_register="https://shop077.com/register"
-
-    # Example list of numbers
-    numbers_list = [1521585344, 1234567890, 9876543210]
+    url_register="https://shop077.com/register?invide_code=fa4e9ec"
+    
+    numbers_list = [1521585344, 1713850617, 1312429829]
     processes = []
     for number in numbers_list:
         p = multiprocessing.Process(target=fill_form, args=(url_form, number))
@@ -18,7 +17,7 @@ if __name__ == '__main__':
         process.join()
     while True:
         for number in range(0,5):
-            p = multiprocessing.Process(target=registe, args=url)
+            p = multiprocessing.Process(target=register_form, args=url_register)
             p.start()
             processes.append(p)
         time.sleep(60)
