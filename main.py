@@ -9,8 +9,8 @@ from form_filler import fill_form
 from register import register_form
 
 if __name__ == '__main__':
-    url_form = "https//shop077.com/forgetPassword"
-    url_register="https://shop077.com/register?invide_code=fa4e9ec"
+    url_form = "https//shop077.com/forgetPassword";
+    url_register="https://shop077.com/register?invide_code=fa4e9ec";;
     
     numbers_list = [1521585344, 1713850617, 1312429829, 1512429529]
     processes = []
