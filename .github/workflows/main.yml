@@ -3,8 +3,7 @@ name: Update requirements and push changes
 on:
   push:
     paths:
-      - '**.py'  # Triggers on any changes to Python files
-      - 'requirements.txt'  # Triggers on changes to requirements.txt
+      - '**.py'
 
 jobs:
   update-requirements:
