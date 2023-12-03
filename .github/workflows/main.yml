@@ -30,18 +30,18 @@ jobs:
       - name: Check for changes in requirements.txt
         id: check_changes
         run: |
+          git add requirements.txt
           git diff-index --quiet HEAD || echo "Changes detected"
 
       - name: Commit changes if any
-        if: steps.check_changes.outputs.run != 'Changes detected'
+        if: steps.check_changes.outputs.run == 'Changes detected'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add requirements.txt
           git commit -m "Update requirements.txt by GitHub Actions"
 
-      - name: Push changes
-        if: steps.check_changes.outputs.run != 'Changes detected'
+      - name: Push changes if any
+        if: steps.check_changes.outputs.run == 'Changes detected'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
