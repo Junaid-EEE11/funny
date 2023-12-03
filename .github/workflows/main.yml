@@ -33,7 +33,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add requirements.txt
-          ggit commit -m "Update requirements.txt by GitHub Actions"
+          git commit -m "Update requirements.txt by GitHub Actions"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
