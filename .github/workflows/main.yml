@@ -1,10 +1,10 @@
-name: Update requirements and push changes
+name: Update requirements
 
 on:
   push:
     paths:
       - '**.py'  # Triggers on any changes to Python files
-      - 'requirements.txt'  # Triggers on changes to requirements.txt
+      # Add other relevant paths if necessary
 
 jobs:
   update-requirements:
@@ -18,18 +18,22 @@ jobs:
         with:
           python-version: '3.x'  # Specify the Python version here
 
-      - name: Upgrade pip and update requirements.txt
+      - name: Install pip
         run: |
+          python -m ensurepip --upgrade
           python -m pip install --upgrade pip
+
+      - name: Generate requirements.txt
+        run: |
           python -m pip freeze > requirements.txt
 
-      - name: Commit changes
+      - name: Commit updated requirements.txt
         run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
           git add requirements.txt
           git diff-index --quiet HEAD || git commit -m "Update requirements.txt by GitHub Actions"
-        
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
