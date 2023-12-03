@@ -12,7 +12,7 @@ def set_payemnt_password():
     [phone_number[i].click() for i in random.choice(range(0,10), k=6)]
 
 def fill_form(url):
-    options =Options()
+    options =Options();
     options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
     driver.get(url)
