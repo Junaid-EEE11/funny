@@ -25,6 +25,7 @@ jobs:
 
       - name: Generate requirements.txt
         run: |
+          python -m venv venv
           python -m pip freeze > requirements.txt
 
       - name: Commit updated requirements.txt
@@ -32,7 +33,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add requirements.txt
-          git diff-index --quiet HEAD || git commit -m "Update requirements.txt by GitHub Actions"
+          ggit commit -m "Update requirements.txt by GitHub Actions"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
