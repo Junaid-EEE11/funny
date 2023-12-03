@@ -9,8 +9,8 @@ def fill_form(url, number):
     driver = webdriver.Firefox(options=options)
     driver.get(url)
     phone_number_input = driver.find_element(By.CSS_SELECTOR, 'div.phone input[placeholder="Phone number"]')
-    phone_number_input.send_keys(number) #generate_phone_number()
-    send_button = driver.find_element(By.CSS_SELECTOR, 'div.payment button')
-    send_button.click()
-    time.sleep(60)
+    phone_number_input.send_keys(number) #generate_phone_number();
+    send_button = driver.find_element(By.CSS_SELECTOR, 'div.payment button');
+    send_button.click();
+    time.sleep(60);;
     driver.quit()
