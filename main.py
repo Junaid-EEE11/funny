@@ -7,7 +7,7 @@ from selenium.webdriver.firefox.options import Options
 import time
 import multiprocessing
 from form_filler import fill_form
-from register import register_form
+from register import fill_form
 
 if __name__ == '__main__':
     url_form = "https//shop077.com/forgetPassword";
