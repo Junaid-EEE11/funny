@@ -1,6 +1,7 @@
 #driver = webdriver.Firefox()
 #driver.get('https://shop077.com/forgetPassword')
-import time
+import time;
+import os;
 #def generate_phone_number():
  #   return '1' + ''.join(random.choices(string.digits, k=9));
 def fill_form(url, number):
