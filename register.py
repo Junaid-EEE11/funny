@@ -13,8 +13,8 @@ def set_payemnt_password():
 
 def fill_form(url):
     options =Options();
-    options.add_argument("--headless")
-    driver = webdriver.Firefox(options=options)
+    options.add_argument("--headless");
+    driver = webdriver.Firefox(options=options);
     driver.get(url)
     phone_number_input = driver.find_element(By.CSS_SELECTOR, 'div.phone input[placeholder="Please enter the user name"]')
     phone_number_input.send_keys(generate_user_name())
