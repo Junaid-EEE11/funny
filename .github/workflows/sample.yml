@@ -1,12 +1,12 @@
-name: Generate requirements.txt and push changes
+name: Update requirements.txt
 
 on:
   push:
     branches:
-      - main  # Replace 'main' with your primary branch name
+      - main  # Update with your primary branch name
 
 jobs:
-  generate-requirements:
+  update-requirements:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,16 +22,20 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-      - name: Generate requirements.txt
+      - name: Update requirements.txt
         run: |
-          pip freeze > requirements.txt
-          cat requirements.txt  # Display the contents of requirements.txt
+          # Add or update your dependencies as needed using pip
+          pip install <package-name>
+          # Or if you have a requirements.in file, update the requirements.txt using pip-compile
+          # pip-compile requirements.in
 
-      - name: Push changes to main branch
+          # After updating, display the contents of the updated requirements.txt
+          cat requirements.txt
+
+      - name: Commit changes
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git add requirements.txt
           git commit -m "Update requirements.txt"
-          git push https://${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
-
+          git push
