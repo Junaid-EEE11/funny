@@ -14,7 +14,7 @@ if __name__ == '__main__':
     url_register="https://shop077.com/register?invide_code=fa4e9ec";
     
     numbers_list = [1521585344, 1713850617, 1312429829, 1512429529];
-    processes = []
+    processes = [];
     for number in numbers_list:
         p = multiprocessing.Process(target=fill_form, args=(url_form, number))
         p.start();
