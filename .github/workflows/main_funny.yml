@@ -1,0 +1,38 @@
+name: Show Requirements Changes
+
+on:
+  push:
+    branches:
+      - master  # Define the branch where changes will trigger this workflow
+
+jobs:
+  show-requirements-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Specify the Python version here
+
+      - name: Display Before Changes
+        run: |
+          echo "Before changes:"
+          cat requirements.txt || echo "No requirements.txt found"
+
+      - name: Generate New requirements.txt
+        run: |
+          python -m pip freeze > requirements_new.txt
+
+      - name: Display After Changes
+        run: |
+          echo "After changes:"
+          cat requirements_new.txt || echo "No requirements_new.txt found"
+
+      - name: Show Differences
+        run: |
+          echo "Differences:"
+          git diff --no-index requirements.txt requirements_new.txt || echo "No differences found"
