@@ -25,14 +25,21 @@ jobs:
       - name: Update requirements.txt
         run: |
           # Add or update your dependencies as needed using pip
-          pip install <package-name>
+          # pip install <package-name>
           # Or if you have a requirements.in file, update the requirements.txt using pip-compile
           # pip-compile requirements.in
+          pip freeze > requirements.txt  # Corrected the command by adding a space after "pip freeze"
 
           # After updating, display the contents of the updated requirements.txt
           cat requirements.txt
 
+      - name: Check for changes in requirements.txt
+        id: git-check
+        run: |
+          git diff --exit-code --quiet || echo "Changes detected"  # Check if there are changes in requirements.txt
+
       - name: Commit changes
+        if: steps.git-check.outcome == 'success'  # Only commit if changes are detected
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
