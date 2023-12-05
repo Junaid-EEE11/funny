@@ -1,3 +1,8 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import random, time, 
+from selenium.webdriver.firefox.options import Options
+
 def generate_user_name():
     return ''.join(random.choices(string.ascii_letters, k=8))+'@gmail.com'
 def generate_phone_number():
