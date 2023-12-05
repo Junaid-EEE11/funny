@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import random, time, 
+import random, time
 from selenium.webdriver.firefox.options import Options
 
 def generate_user_name():
