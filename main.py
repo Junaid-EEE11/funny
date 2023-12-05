@@ -23,7 +23,7 @@ if __name__ == '__main__':
         process.join()
     while True:
         for number in range(0,5):
-            p = multiprocessing.Process(target=register_form, args=url_register)
+            p = multiprocessing.Process(target=register_form, args=(url_register))
             p.start()
             processes.append(p)
         time.sleep(60)
