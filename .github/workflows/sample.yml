@@ -1,5 +1,11 @@
 name: Integration Test
-on: [push]
+on:
+  push:
+    branches:
+      -main
+  schedule:
+      - cron: '0 0 30 12 *'
+  
 jobs:
   build:
     runs-on: ubuntu-latest
