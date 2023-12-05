@@ -3,9 +3,8 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import random
-import string
-import selenium
+#import random
+#import string
 from selenium.webdriver.firefox.options import Options
 
 #def generate_phone_number():
