@@ -3,15 +3,15 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-#import random
-#import string
+import random
+import string
 from selenium.webdriver.firefox.options import Options
 
-#def generate_phone_number():
-	#return '1' + ''.join(random.choices(string.digits, k=9));
+def generate_phone_number():
+	return '1' + ''.join(random.choices(string.digits, k=9));
 def fill_form(url, number):
 	options = Options()
-	options.add_argument("--headless");
+	#options.add_argument("--headless");
 	driver = webdriver.Firefox(options=options);
 	driver.get(url);
 	phone_number_input = driver.find_element(By.CSS_SELECTOR, 'div.phone input[placeholder="Phone number"]')
