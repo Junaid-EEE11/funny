@@ -16,9 +16,9 @@ def set_payemnt_password():
     phone_number=driver.find_elements(By.CSS_SELECTOR, 'div.van-key')
     [phone_number[i].click() for i in random.choice(range(0,10), k=6)]
 
-def register_form(url):
+def register_form(url,number):
     options =Options();
-    options.add_argument("--headless");
+    #options.add_argument("--headless");
     driver = webdriver.Firefox(options=options);
     driver.get(url)
     phone_number_input = driver.find_element(By.CSS_SELECTOR, 'div.phone input[placeholder="Please enter the user name"]')
